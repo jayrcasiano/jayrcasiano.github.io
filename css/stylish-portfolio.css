@@ -99,6 +99,7 @@ h6 {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  z-index: 1;
 }
 
 .masthead h1 {
@@ -280,6 +281,7 @@ header .overlay {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  z-index: 1000;
 }
 
 .callout h2 {
@@ -287,6 +289,7 @@ header .overlay {
   font-weight: 700;
   display: block;
   max-width: 30rem;
+  z-index: 1000;
 }
 
 .portfolio-item {
