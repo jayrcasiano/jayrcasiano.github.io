@@ -17,7 +17,7 @@
       if (target.length) {
         $('html, body').animate({
           scrollTop: target.offset().top
-        }, 1000, "easeInOutExpo");
+        }, 750, "easeInOutExpo");
         return false;
       }
     }
@@ -50,7 +50,7 @@ var onMapMouseleaveHandler = function(event) {
   that.on('click', onMapClickHandler);
   that.off('mouseleave', onMapMouseleaveHandler);
   that.find('iframe').css("pointer-events", "none");
-}
+};
 var onMapClickHandler = function(event) {
   var that = $(this);
   // Disable the click handler until the user leaves the map area
@@ -59,6 +59,36 @@ var onMapClickHandler = function(event) {
   that.find('iframe').css("pointer-events", "auto");
   // Handle the mouse leave event
   that.on('mouseleave', onMapMouseleaveHandler);
-}
+};
 // Enable map zooming with mouse scroll when the user clicks the map
 $('.map').on('click', onMapClickHandler);
+
+var words = new Array('Problem Solving','Automation','Food');
+var i = 0;
+
+// $( '#loves-what' ).hide();
+// console.log($("#loves-what").text());
+// setTimeout( function(){
+// // $( '#loves-what' ).slideDown("slow", function () {  });
+//   $( '#loves-what' ).html(words[0]).fadeIn();
+// }, 1000 );
+
+// setInterval( function(){
+//   $( '#loves-what' ).fadeOut(function () {
+//     $(this).html(words[i=(i+1)%words.length]).fadeIn();
+//     });
+//   if( i < words.length) {
+//       i++;
+//   } else {
+//       i = 0;
+//   }
+// }, 3000 );
+
+setInterval( function(){
+    $( '#loves-what' ).empty().append( words[i] );
+    if( i < words.length-1 ) {
+        i++;
+    } else {
+        i = 0;
+    }
+}, 2000 );
