@@ -63,7 +63,7 @@ var onMapClickHandler = function(event) {
 // Enable map zooming with mouse scroll when the user clicks the map
 $('.map').on('click', onMapClickHandler);
 
-var words = new Array('Problem Solving','Automation','Food','Game Development');
+var words = new Array('Problem Solving','Automation','Food','Game Development','Dogs');
 var i = 0;
 
 // $( '#loves-what' ).hide();
