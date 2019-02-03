@@ -66,73 +66,51 @@ $('.map').on('click', onMapClickHandler);
 var words = new Array('Problem Solving','Automation','Food','Game Development');
 var i = 0;
 
-// (function() {
-
-//   var quotes = $("#loves-what");
-//   var quoteIndex = -1;
-  
-//   function showNextQuote() {
-//       ++quoteIndex;
-//       quotes.eq(quoteIndex % quotes.length)
-//           .fadeIn(1000)
-//           .delay(1500)
-//           .fadeOut(1000, showNextQuote);
-//   }
-  
-//   showNextQuote();
-  
-// })();
-// $( '#loves-what' ).hide();
-// console.log($("#loves-what").text());
-// setTimeout( function(){
-// // $( '#loves-what' ).slideDown("slow", function () {  });
-//   $( '#loves-what' ).html(words[0]).fadeIn();
-// }, 1000 );
-
-// setInterval( function(){
-//   $( '#loves-what' ).fadeOut(function () {
-//     $(this).html(words[i=(i+1)%words.length]).fadeIn();
-//     });
-//   if( i < words.length) {
-//       i++;
-//   } else {
-//       i = 0;
-//   }
-// }, 3000 );
-
-function interval(func, wait, times){
-  var interv = function(w, t){
-      return function(){
-          if(typeof t === "undefined" || t-- > 0){
-              setTimeout(interv, w);
-              try{
-                  func.call(null);
-              }
-              catch(e){
-                  t = 0;
-                  throw e.toString();
-              }
-          }
-      };
-  }(wait, times);
-
-  setTimeout(interv, wait);
-}
-
-jQuery(window).on('load',function(){
-// $( '#loves-what' ).fadeTo(4000,0);
-interval(function(){
-    $( '#loves-what' ).empty().append( words[i] );
-    // .fadeTo(1000,1)
-    //       .delay(1500)
-    //       .fadeTo(1000,0);
+$(document).ready(function() {
+  function runIt() {           
+    var baloon = $('#loves-what');
+    baloon.animate({opacity:'1'}, 1750);
+        $( '#loves-what' ).empty().append( words[i] );
     if( i < words.length-1 ) {
         i++;
     } else {
         i = 0;
     }
-}, 4000);
+    baloon.animate({opacity:'0'}, 1750, runIt);
+ }
+ runIt();
 });
+
+// function interval(func, wait, times){
+//   var interv = function(w, t){
+//       return function(){
+//           if(typeof t === "undefined" || t-- > 0){
+//               setTimeout(interv, w);
+//               try{
+//                   func.call(null);
+//               }
+//               catch(e){
+//                   t = 0;
+//                   throw e.toString();
+//               }
+//           }
+//       };
+//   }(wait, times);
+
+//   setTimeout(interv, wait);
+// }
+
+// jQuery(window).on('load',function(){
+// // $( '#loves-what' ).fadeTo(4000,0);
+// interval(function(){
+//     $( '#loves-what' ).empty().append( words[i] );
+//     if( i < words.length-1 ) {
+//         i++;
+//     } else {
+//         i = 0;
+//     }
+// }, 2000);
+// });
 
 // setInterval(() => fetch(
 //   console.log("f")
