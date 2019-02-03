@@ -100,20 +100,55 @@ var i = 0;
 //   }
 // }, 3000 );
 
-jQuery(window).on('load',function()
-{
-  $( '#loves-what' ).fadeTo(1000,0);
-  setInterval( function(){
-    $( '#loves-what' ).empty().append( words[i] )
-    .fadeTo(1000,1)
-          .delay(1500)
-          .fadeTo(1000,0);
+function interval(func, wait, times){
+  var interv = function(w, t){
+      return function(){
+          if(typeof t === "undefined" || t-- > 0){
+              setTimeout(interv, w);
+              try{
+                  func.call(null);
+              }
+              catch(e){
+                  t = 0;
+                  throw e.toString();
+              }
+          }
+      };
+  }(wait, times);
+
+  setTimeout(interv, wait);
+}
+
+jQuery(window).on('load',function(){
+// $( '#loves-what' ).fadeTo(4000,0);
+interval(function(){
+    $( '#loves-what' ).empty().append( words[i] );
+    // .fadeTo(1000,1)
+    //       .delay(1500)
+    //       .fadeTo(1000,0);
     if( i < words.length-1 ) {
         i++;
     } else {
         i = 0;
     }
-}, 4000 );
+}, 4000);
 });
 
-
+// setInterval(() => fetch(
+//   console.log("f")
+// ), 4000);
+// jQuery(window).on('load',function()
+// {
+//   $( '#loves-what' ).fadeTo(1500,0);
+//   setInterval( function(){
+//     $( '#loves-what' ).empty().append( words[i] )
+//     .fadeTo(1000,1)
+//           .delay(1500)
+//           .fadeTo(1000,0);
+//     if( i < words.length-1 ) {
+//         i++;
+//     } else {
+//         i = 0;
+//     }
+// }, 4000 );
+// });
