@@ -66,6 +66,22 @@ $('.map').on('click', onMapClickHandler);
 var words = new Array('Problem Solving','Automation','Food','Game Development');
 var i = 0;
 
+// (function() {
+
+//   var quotes = $("#loves-what");
+//   var quoteIndex = -1;
+  
+//   function showNextQuote() {
+//       ++quoteIndex;
+//       quotes.eq(quoteIndex % quotes.length)
+//           .fadeIn(1000)
+//           .delay(1500)
+//           .fadeOut(1000, showNextQuote);
+//   }
+  
+//   showNextQuote();
+  
+// })();
 // $( '#loves-what' ).hide();
 // console.log($("#loves-what").text());
 // setTimeout( function(){
@@ -84,11 +100,20 @@ var i = 0;
 //   }
 // }, 3000 );
 
-setInterval( function(){
-    $( '#loves-what' ).empty().append( words[i] );
+jQuery(window).on('load',function()
+{
+  $( '#loves-what' ).fadeTo(1000,0);
+  setInterval( function(){
+    $( '#loves-what' ).empty().append( words[i] )
+    .fadeTo(1000,1)
+          .delay(1500)
+          .fadeTo(1000,0);
     if( i < words.length-1 ) {
         i++;
     } else {
         i = 0;
     }
-}, 2000 );
+}, 4000 );
+});
+
+
