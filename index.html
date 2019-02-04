@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
   <head>
     <meta charset="utf-8" />
     <meta
@@ -40,7 +44,8 @@
     <nav id="sidebar-wrapper">
       <ul class="sidebar-nav">
         <li class="sidebar-brand">
-          <a class="js-scroll-trigger" href="#page-top">Jay-R Casiano</a>
+          <a>Jay-R Casiano</a>
+          <!-- <a class="js-scroll-trigger" href="#page-top">Jay-R Casiano</a> -->
         </li>
         <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="#page-top">Home</a>
@@ -219,7 +224,12 @@
         </div>
         <div class="row no-gutters">
           <div class="col-lg-6">
-            <a class="portfolio-item" href="#">
+            <a
+              class="portfolio-item"
+              href="img/portfolio-1.jpg"
+              data-toggle="modal"
+              data-target="#myModal"
+            >
               <span class="caption">
                 <span class="caption-content">
                   <h1>Hit The Can</h1>
@@ -232,7 +242,12 @@
             </a>
           </div>
           <div class="col-lg-6">
-            <a class="portfolio-item" href="#">
+            <a
+              class="portfolio-item"
+              href="img/portfolio-1.jpg"
+              data-toggle="modal"
+              data-target="#myModal"
+            >
               <span class="caption">
                 <span class="caption-content">
                   <h1>Haloes</h1>
@@ -246,7 +261,12 @@
             </a>
           </div>
           <div class="col-lg-6">
-            <a class="portfolio-item" href="#">
+            <a
+              class="portfolio-item"
+              href="img/portfolio-1.jpg"
+              data-toggle="modal"
+              data-target="#myModal"
+            >
               <span class="caption">
                 <span class="caption-content">
                   <h1>Cats: Save The World</h1>
@@ -260,7 +280,12 @@
             </a>
           </div>
           <div class="col-lg-6">
-            <a class="portfolio-item" href="#">
+            <a
+              class="portfolio-item"
+              href="img/portfolio-1.jpg"
+              data-toggle="modal"
+              data-target="#myModal"
+            >
               <span class="caption">
                 <span class="caption-content">
                   <h1>Pillars</h1>
@@ -276,6 +301,15 @@
         </div>
       </div>
     </section>
+
+    <script>
+      $(".portfolio-item").click(function(event) {
+        event.preventDefault();
+        console.log("ggg");
+        $(".modal img").attr("src", $(this).attr("href"));
+        $(".modal").modal("show");
+      });
+    </script>
 
     <!-- Call to Action -->
     <section class="content-section bg-primary text-white">
@@ -334,14 +368,40 @@
       <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for this template -->
     <script src="js/stylish-portfolio.min.js"></script>
+    <script src="js/modal-view-image-view.min.js"></script>
   </body>
+
+  <!-- Modal Constant -->
+  <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Modal title</h4>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img class="img-fluid" src="" />
+          <p>One fine body&hellip;</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            Close
+          </button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </html>
